@@ -1,9 +1,12 @@
+import Advertisement from "../Advertisement/Advertisement";
+import Banner from "../Banner/Banner";
 
 
 const Home = () => {
     return (
         <div>
-            <h1>This is Home Page</h1>
+            <Banner></Banner>
+            <Advertisement></Advertisement>
         </div>
     );
 };

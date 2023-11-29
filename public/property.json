@@ -1,0 +1,41 @@
+[
+    {
+        "id": 1,
+        "property_image": "https://i.ibb.co/v315DHz/p2.jpg",
+        "property_name": "Luxurious Villa with Ocean View",
+        "property_location": "123 Main Street, Beach City",
+        "max_price": "$1200000",
+        "min_price": "$800000",
+        "description": "Stunning villa overlooking the ocean. Spacious rooms, modern amenities, and a private pool. Ideal for those seeking luxury and tranquility.",
+        "verification_status": "verified"
+    },
+    {
+        "id": 2,
+        "property_image": "https://i.ibb.co/Dpp76ZN/p1.jpg",
+        "property_name": "Cozy Apartment in Downtown",
+        "property_location": "London, UK",
+        "max_price": "$500000",
+        "min_price": "$300000",
+        "description": "Charming apartment in the heart of the city. Close to shopping, dining, and public transportation. Perfect for urban living.",
+        "verification_status": "verified"
+    },
+    {   "id": 3,
+        "property_image": "https://i.ibb.co/chZ8wCC/p4.jpg",
+        "property_name": "Family-Friendly Suburban Home",
+        "property_location": "New York City, NY",
+        "max_price": "$700000",
+        "min_price": "$500000",
+        "description": "Spacious family home with a large backyard. Close to schools and parks. Safe and quiet neighborhood for family living.",
+        "verification_status": "verified"
+    },
+    {   
+        "id": 3,
+        "property_image": "https://i.ibb.co/hL5w2LN/p3.jpg",
+        "property_name": "Modern Condo with City Views",
+        "property_location": "San Francisco, USA",
+        "max_price": "$600000",
+        "min_price": "$400000",
+        "description": "Sleek and modern condo with breathtaking city views. Close to entertainment and nightlife. Ideal for those who love city living.",
+        "verification_status": "verified"
+    }
+]
