@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 import { ImLocation2 } from "react-icons/im";
 import { FaArrowRight } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const AdvertisementCard = ({ data }) => {
-    const { property_image, property_name, property_location, max_price, min_price } = data;
+    const { _id, property_image, property_name, property_location, max_price, min_price } = data;
 
     return (
         <div>
@@ -16,9 +17,11 @@ const AdvertisementCard = ({ data }) => {
                     <div className="text-base font-medium flex items-center"><div>
                         <ImLocation2 className="text-blue-500 text-lg"></ImLocation2>
                     </div><div>{property_location}</div></div>
-                    <div className="card-actions justify-end flex ">
-                        <button className="btn btn-outline border-0 border-b-4 mt-4 bg-slate-100 text-blue-500 text-center mx-auto  uppercase">Details<FaArrowRight></FaArrowRight></button>
-                    </div>
+                    <Link to={`details/${_id}`}>
+                        <div className="card-actions justify-end flex ">
+                            <button className="btn btn-outline border-0 border-b-4 mt-4 bg-slate-100 text-blue-500 text-center mx-auto  uppercase">Details<FaArrowRight></FaArrowRight></button>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>

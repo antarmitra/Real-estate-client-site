@@ -7,7 +7,7 @@ const Advertisement = () => {
   const [adData, setAdData] = useState();
 
   useEffect(() => {
-    fetch('property.json')
+    fetch('http://localhost:5000/advertisement')
       .then(res => res.json())
       .then(data => setAdData(data))
   }, [])
