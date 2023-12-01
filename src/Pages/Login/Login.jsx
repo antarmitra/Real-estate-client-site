@@ -13,7 +13,7 @@ import useAxiosPublic from "../../hook/useAxiosPublic";
 
 
 const Login = () => {
-    const [disable, setDisable] = useState(true);
+    const [disable, setDisable] = useState(false);
 
     const { singIn } = useAuth();
     const navigate = useNavigate();
@@ -62,6 +62,15 @@ const Login = () => {
             })
     }
 
+    // const handleGoogleSingIn = () => {
+    //     signInWithPopup(auth, Provider)
+    //         .then(result => {
+    //             const user = result.user;
+    //             console.log(user);
+    //             navigate(location?.state ? location.state : '/')
+    //         })
+    //         .catch(error => console.log(error))
+    // }
     const handleGoogleSingIn = () => {
         signInWithPopup(auth, Provider)
             .then(result => {
@@ -76,7 +85,6 @@ const Login = () => {
                         console.log(res.data);
                         navigate(location?.state ? location.state : '/')
                     })
-
             })
             .catch(error => console.log(error))
     }
@@ -121,7 +129,7 @@ const Login = () => {
                                 <label className="label">
                                     <LoadCanvasTemplate />
                                 </label>
-                                <input type="text" onBlur={handleValidateCaptcha} name="captcha" placeholder="type the captcha above" className="input input-bordered" required />
+                                <input type="text" onBlur={handleValidateCaptcha} name="captcha" placeholder="type the captcha above" className="input input-bordered"  />
                             </div>
 
                             <div className="form-control mt-6">

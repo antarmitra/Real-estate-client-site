@@ -8,6 +8,7 @@ import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { app } from "../../Firebase/firebase.config";
 import useAuth from "../../hook/useAuth";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../hook/useAxiosPublic";
 
 
 const SignUp = () => {
@@ -17,6 +18,7 @@ const SignUp = () => {
     const Provider = new GoogleAuthProvider()
     const auth = getAuth(app);
     const navigate = useNavigate();
+    const axiosPublic = useAxiosPublic();
 
     const onSubmit = data => {
         console.log(data);
@@ -27,17 +29,33 @@ const SignUp = () => {
                 console.log(user);
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        console.log('user profile update info');
-                        reset();
-                        Swal.fire({
-                            position: "top-end",
-                            icon: "success",
-                            title: "Account Created Successfully",
-                            showConfirmButton: false,
-                            timer: 2500
-                        });
+                        // Create user entry the database
+                        const userInfo = {
+                            name: data.name,
+                            email: data.email
+                        }
+                        axiosPublic.post('/users', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    console.log('user added to the database');
+                                    reset();
+                                    Swal.fire({
+                                        position: "top-end",
+                                        icon: "success",
+                                        title: "Account Created Successfully",
+                                        showConfirmButton: false,
+                                        timer: 2500
+                                    });
+                                    navigate('/')
+                                }
+
+                            })
                     })
-                navigate('/')
+                    .catch(error => {
+                        console.log(error.message);
+                    })
+
+
             })
     }
 

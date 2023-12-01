@@ -1,17 +1,20 @@
 import { FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa6";
-import useAuth from "../../../hook/useAuth";
-import SectionTitle from "../../../component/SectionTitle/SectionTitle";
+// import useAuth from "../../../hook/useAuth";
+// import SectionTitle from "../../../component/SectionTitle/SectionTitle";
 import { FcGoogle } from "react-icons/fc";
+import useAuth from "../../../../hook/useAuth";
+import SectionTitle from "../../../../component/SectionTitle/SectionTitle";
 
 
-const MyProfile = () => {
-    const { user } = useAuth();
+const UserProfile = () => {
+    const {user} = useAuth()
+    // const { user } = useAuth();
     console.log(user);
     return (
         <div>
             <SectionTitle heading="My Profile">
             </SectionTitle>
-            <div className="bg-slate-200 shadow-xl rounded-lg ml-10 space-y-5">
+            <div className="bg-slate-200 shadow-xl rounded-lg ml-10 mr-10 space-y-5">
                 <img className="w-32 h-32 rounded-full  mx-auto" src={user?.photoURL} alt="" />
                 <h1 className="text-center text-2xl font-medium">{user?.displayName}</h1>
                 <h2 className="text-center text-xl font-medium">{user?.email}</h2>
@@ -34,4 +37,4 @@ const MyProfile = () => {
     );
 };
 
-export default MyProfile;
+export default UserProfile;

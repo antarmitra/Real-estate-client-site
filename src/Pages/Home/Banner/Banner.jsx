@@ -13,9 +13,6 @@ import img3 from '../../../assets/banner/img3.jpg'
 
 
 
-
-
-
 const Banner = () => {
     return (
         <div>

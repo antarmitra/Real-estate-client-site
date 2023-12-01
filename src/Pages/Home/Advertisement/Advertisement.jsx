@@ -3,6 +3,8 @@ import AdvertisementCard from "./AdvertisementCard";
 import SectionTitle from "../../../component/SectionTitle/SectionTitle";
 import useAxiosPublic from "../../../hook/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
+import Lottie from "lottie-react";
+import loader from '../../../assets/loading/load.json'
 // import useCart from "../../../hook/useCart";
 
 
@@ -20,7 +22,7 @@ const Advertisement = () => {
     }
   })
   if(isPending){
-    return <h1>Loading.....</h1>
+    return <Lottie className="w-32 text-center mx-auto" animationData={loader}></Lottie>
   }
 
 

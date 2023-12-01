@@ -1,18 +1,19 @@
 // import { useQuery } from "@tanstack/react-query";
-// import useAxiosPublic from "./useAxiosPublic";
+// import useAxiosSecure from "./useAxiosSecure";
+
+
 
 
 // const useCart = () => {
-//     const axiosPublic = useAxiosPublic();
-
-//     const {data : cart = [], isPending} = useQuery({
-//         queryKey: ['advertising'],
+//     const axiosSecure = useAxiosSecure();
+//     const { data: cart = [] } = useQuery({
+//         queryKey: ['cart'],
 //         queryFn: async () => {
-//             const res = await axiosPublic.get("/advertisement");
+//             const res = await axiosSecure.get('/cart')
 //             return res.data
 //         }
 //     })
-//     return [cart, isPending]
+//     return [cart]
 // };
 
 // export default useCart;
