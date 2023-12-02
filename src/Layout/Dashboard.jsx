@@ -49,7 +49,9 @@ const Dashboard = () => {
                                     </NavLink>
                                 </li>
                             </>
+
                             :
+
                             isAgent ?
                                 <>
                                     <li>
@@ -71,19 +73,21 @@ const Dashboard = () => {
                                         </NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to='/dashboard/manageproperties'>
+                                        <NavLink to='/dashboard/mysoldreviews'>
                                             <MdRateReview className="text-xl"></MdRateReview>
                                             <p className="text-base font-medium">My Sold Reviews</p>
                                         </NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to='/dashboard/manageproperties'>
+                                        <NavLink to='/dashboard/requestedproperty'>
                                             <MdOutlineRequestQuote className="text-xl"></MdOutlineRequestQuote>
                                             <p className="text-base font-medium">Requested Property</p>
                                         </NavLink>
                                     </li>
                                 </>
+
                                 :
+
                                 <>
                                     <li>
                                         <NavLink to='/dashboard/userprofile'>

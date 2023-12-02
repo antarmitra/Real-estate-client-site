@@ -78,29 +78,6 @@ const Details = () => {
         }
     }
 
-    // const handleAddTowishList = () => {
-    //     const add = {
-    //         photo: property_image,
-    //         name: property_name,
-    //         maxPrice: max_price,
-    //         minPrice: min_price,
-    //         description: description,
-    //     };
-
-    //     axios.post('http://localhost:5000/addProperty', add)
-    //         .then(data => {
-    //             console.log(data);
-    //             if (data.insertedId) {
-    //                 Swal.fire({
-    //                     title: 'Success!',
-    //                     text: `${add.name} has been successfully added to the wishlist page`,
-    //                     icon: 'Success',
-    //                     confirmButtonText: 'Cool'
-    //                 })
-    //             }
-    //         })
-    // };
-
 
     const handleReviewNow = (e) => {
         e.preventDefault();
@@ -139,6 +116,7 @@ const Details = () => {
             })
     }
 
+  
 
 
     return (

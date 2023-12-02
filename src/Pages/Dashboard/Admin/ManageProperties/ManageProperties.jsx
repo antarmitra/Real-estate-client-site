@@ -53,7 +53,6 @@ const ManageProperties = () => {
 
 
 
-
     return (
         <div>
             <SectionTitle heading="Manage Properties"></SectionTitle>
@@ -92,8 +91,10 @@ const ManageProperties = () => {
                                 <td className="text-xl ">{data.maxPrice}</td>
                                 <td className="text-xl ">{data.minPrice}</td>
                                 <th>
-                                    {data.role === 'verify' ? 'Verified' : <button onClick={() => handleVerify(data)} className={`btn btn-primary mr-5 text-lg ${data.role === 'reject' ? 'btn-disabled' : ''} text-white`}>Verify</button>}
-                                    {data.role == 'reject' ? 'Rejected' : <button onClick={() => handleReject(data)} className={`btn btn-primary ml-5 text-lg ${data.role === 'verify' ? 'btn-disabled' : ''}  text-white `}>Rejected</button>}
+                                    {data.status === 'verify' ? 'Verified' : <button onClick={() => handleVerify(data)} className={`btn btn-primary mr-5 text-lg ${data.status === 'rejected' ? 'btn-disabled' : ''} text-white`}>Verify</button>}
+                                    {data.status == 'reject' ? 'Rejected' : <button onClick={() => handleReject(data)} className={`btn btn-primary ml-5 text-lg ${data.status === 'verified' ? 'btn-disabled' : ''}  text-white `}>Reject</button>}
+
+
                                 </th>
                             </tr>
                             )}
