@@ -5,11 +5,12 @@ import { FcGoogle } from "react-icons/fc";
 import { FiGithub } from "react-icons/fi";
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { useEffect, useState } from "react";
-import Swal from "sweetalert2";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { app } from "../../Firebase/firebase.config";
 import useAuth from "../../hook/useAuth";
 import useAxiosPublic from "../../hook/useAxiosPublic";
+import Swal from "sweetalert2";
+
 
 
 const Login = () => {
@@ -41,36 +42,20 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+
                 Swal.fire({
+                    position: "top-end",
+                    icon: "success",
                     title: "User Login Successfully",
-                    showClass: {
-                        popup: `
-                    animate__animated
-                    animate__fadeInUp
-                    animate__faster
-                  `
-                    },
-                    hideClass: {
-                        popup: `
-                    animate__animated
-                    animate__fadeOutDown
-                    animate__faster
-                  `
-                    }
+                    showConfirmButton: false,
+                    timer: 2000
                 });
+
                 navigate(from, { replace: true });
             })
     }
 
-    // const handleGoogleSingIn = () => {
-    //     signInWithPopup(auth, Provider)
-    //         .then(result => {
-    //             const user = result.user;
-    //             console.log(user);
-    //             navigate(location?.state ? location.state : '/')
-    //         })
-    //         .catch(error => console.log(error))
-    // }
+
     const handleGoogleSingIn = () => {
         signInWithPopup(auth, Provider)
             .then(result => {
@@ -129,7 +114,7 @@ const Login = () => {
                                 <label className="label">
                                     <LoadCanvasTemplate />
                                 </label>
-                                <input type="text" onBlur={handleValidateCaptcha} name="captcha" placeholder="type the captcha above" className="input input-bordered"  />
+                                <input type="text" onBlur={handleValidateCaptcha} name="captcha" placeholder="type the captcha above" className="input input-bordered" />
                             </div>
 
                             <div className="form-control mt-6">

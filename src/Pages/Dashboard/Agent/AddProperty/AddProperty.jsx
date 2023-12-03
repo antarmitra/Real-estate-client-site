@@ -18,16 +18,18 @@ const AddProperty = () => {
         const location = form.location.value;
         const email = form.email.value;
         const name = form.name.value;
+        const photo = form.photo.value;
         const maxPrice = form.maxPrice.value;
         const minPrice = form.minPrice.value;
-        const addProperty = { image, title, location, email, name, maxPrice, minPrice };
+        const description = form.description.value;
+        const addProperty = { image, title, location, email, name, maxPrice, minPrice, description, photo  };
         console.log(addProperty);
 
         const addProperties = await axiosSecure.post('/add', addProperty)
         console.log(addProperties.data);
 
         if (addProperties.data.insertedId) {
-                e.target.reset();
+            e.target.reset();
             // show success popup
             Swal.fire({
                 position: "top-end",
@@ -99,12 +101,13 @@ const AddProperty = () => {
                         </div>
                         <div className="form-control md:w-1/2">
                             <label className="label">
-                                <span className="label-text text-lg font-medium text-black-600">Maximum Price</span>
+                                <span className="label-text text-lg font-medium text-black-600">Agent Image</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="maxPrice" placeholder="Maximum Price...." className="input input-bordered w-full" />
+                                <input type="photo" name="photo" defaultValue={user?.photoURL} readOnly  placeholder="Agent Email Here....." className="input input-bordered w-full" />
                             </label>
                         </div>
+
                     </div>
 
                     {/* price*/}
@@ -117,6 +120,24 @@ const AddProperty = () => {
                                 <input type="text" name="minPrice" placeholder="Minimum Price...." className="input input-bordered w-full" />
                             </label>
                         </div>
+                        <div className="form-control md:w-1/2">
+                            <label className="label">
+                                <span className="label-text text-lg font-medium text-black-600">Maximum Price</span>
+                            </label>
+                            <label className="input-group">
+                                <input type="text" name="maxPrice" placeholder="Maximum Price...." className="input input-bordered w-full" />
+                            </label>
+                        </div>
+
+                    </div>
+
+                    <div className="form-control md:w-full">
+                        <label className="label">
+                            <span className="label-text text-lg font-medium text-black-600">Description</span>
+                        </label>
+                        <label className="input-group">
+                            <input type="text" name="description" placeholder="Description Here...." className="input input-bordered w-full" />
+                        </label>
                     </div>
 
                     <input type="submit" value="Add Property" className="btn btn-outline border-0 border-b-4 mt-4 text-center mx-auto block text-xl" />

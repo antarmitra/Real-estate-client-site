@@ -152,8 +152,6 @@ const MyAddPropertyCard = ({ data }) => {
                             </div>)
 
                             : ' '}
-
-
                         <button onClick={() => handleDeleteProperty(data)} className="btn btn-outline border-0 border-b-4 bg-slate-100 text-blue-500 uppercase">Delete<MdDelete className="text-lg text-red-600"></MdDelete></button>
                     </div>
                 </div>

@@ -4,7 +4,6 @@ import {
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
 import Details from "../Pages/Home/Details/Details";
-import WishList from "../Pages/Home/WishList/WishList";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import PrivateRoute from "./PrivateRoute";
@@ -14,13 +13,17 @@ import Dashboard from "../Layout/Dashboard";
 import AdminProfile from "../Pages/Dashboard/Admin/AdminProfile/AdminProfile";
 import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers/ManageUsers";
 import UserProfile from "../Pages/Dashboard/User/UserProfile/UserProfile";
-import Wishlist from "../Pages/Dashboard/User/Wishlist/Wishlist";
 import PropertyBought from "../Pages/Dashboard/User/PropertyBought/PropertyBought";
 import UserReview from "../Pages/Dashboard/User/UserReview/UserReview";
 import AgentProfile from "../Pages/Dashboard/Agent/AgentProfile/AgentProfile";
 import AddProperty from "../Pages/Dashboard/Agent/AddProperty/AddProperty";
 import MyAddProperty from "../Pages/Dashboard/Agent/MyAddProperty/MyAddProperty";
 import ManageProperties from "../Pages/Dashboard/Admin/ManageProperties/ManageProperties";
+import AllProperties from "../Pages/AllProperties/AllProperties";
+import WishList from "../Pages/Dashboard/User/Wishlist/Wishlist";
+import Offer from "../Pages/Dashboard/User/Offer/Offer";
+import ManageReview from "../Pages/Dashboard/Admin/ManageReview/ManageReview";
+
 // import ManageUser from "../Pages/Dashboard/Admin/ManageUser/ManageUser";
 
 
@@ -40,6 +43,14 @@ export const router = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <Details></Details>
+            },
+            {
+                path: '/offer/:id',
+                element: <Offer></Offer>
+            },
+            {
+                path: '/allproperties',
+                element: <AllProperties></AllProperties>
             },
             {
                 path: '/wishlist',
@@ -68,7 +79,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'wishlist',
-                element: <Wishlist></Wishlist>
+                element: <WishList></WishList>
             },
             {
                 path: 'propertybought',
@@ -111,6 +122,10 @@ export const router = createBrowserRouter([
             {
                 path: 'manageproperties',
                 element: <ManageProperties></ManageProperties>
+            },
+            {
+                path: 'managereview',
+                element: <ManageReview></ManageReview>
             }
         ]
     }

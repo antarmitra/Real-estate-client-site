@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import img from '../../../assets/banner/img5.jpg'
 import { FaRegHeart } from "react-icons/fa";
 import { MdRateReview } from "react-icons/md";
-import useAuth from "../../../hook/useAuth";
 import useAxiosSecure from "../../../hook/useAxiosSecure";
-
-
+import useAuth from "../../../hook/useAuth";
+import { useNavigate, useParams } from "react-router-dom";
 
 
 const Details = () => {
@@ -15,12 +13,11 @@ const Details = () => {
     const [detailsData, setDetailsData] = useState([]);
     const { user } = useAuth();
     const navigate = useNavigate();
-    const location = useLocation();
+    // const Location = useLocation();
     const axiosSecure = useAxiosSecure();
 
-
     useEffect(() => {
-        fetch('http://localhost:5000/advertisement')
+        fetch('http://localhost:5000/add')
             .then(res => res.json())
             .then(data => setDetailsData(data))
     }, [])
@@ -29,7 +26,7 @@ const Details = () => {
 
     const findDetails = detailsData.find(data => data._id === id);
     // console.log(findDetails);
-    const { property_image, property_name, description, max_price, min_price } = findDetails || {}
+    const { image, title, description, maxPrice, minPrice, location, photo, name } = findDetails || {}
     // console.log(property_name);
 
 
@@ -37,11 +34,15 @@ const Details = () => {
         if (user && user.email) {
             console.log(user.email);
             const addItem = {
-                photo: property_image,
-                name: property_name,
-                maxPrice: max_price,
-                minPrice: min_price,
+                image: image,
+                title: title,
+                location: location,
+                maxPrice: maxPrice,
+                minPrice: minPrice,
                 description: description,
+                photo: photo,
+                name: name,
+                email: user?.email
             }
             axiosSecure.post('/addProperty', addItem)
                 .then(res => {
@@ -50,7 +51,7 @@ const Details = () => {
                         Swal.fire({
                             position: "top-end",
                             icon: "success",
-                            title: `${addItem.name} has been successfully added to the wishlist page `,
+                            title: 'Successfully added to the wishlist page ',
                             showConfirmButton: false,
                             timer: 2500
                         });
@@ -88,7 +89,9 @@ const Details = () => {
         const name = form.name.value;
         const description = form.description.value;
         const date = new Date();
-        const review = { title, photo, name, description, date }
+        const email = user?.email;
+        const agentName = form.agentName.value;
+        const review = { title, photo, name, description, date, email, agentName }
         console.log(review);
 
         fetch('http://localhost:5000/review', {
@@ -116,7 +119,7 @@ const Details = () => {
             })
     }
 
-  
+
 
 
     return (
@@ -127,13 +130,24 @@ const Details = () => {
                 <h2 className="lg:text-5xl md:text-4xl text-lg font-bold text-white lg:ml-[550px] md:ml-[250px] ml-[140px]">Property Details</h2>
             </div>
             <div className="card lg:card-side lg:w-[1200px] md:w-[500px] w-[400px] mt-16 mx-auto bg-base-100 shadow-xl">
-                <figure><img className="w-[800px] h-[450px]" src={property_image} alt="Album" /></figure>
+                <figure><img className="w-[800px] h-[450px]" src={image} alt="Album" /></figure>
                 <div className="card-body lg:mt-14 md:mt-0">
-                    <h2 className="card-title lg:text-4xl md:text-2xl text-2xl">{property_name}</h2>
+                    <h2 className="card-title lg:text-4xl md:text-2xl text-2xl">{title}</h2>
+                    <h3 className="card-title lg:text-xl md:text-lg text-base text-gray-500">{location}</h3>
                     <div className="justify-end space-y-5">
-                        <p className="lg:text-2xl md:text-xl text-xl font-medium">Max-Price: <span className="text-xl">{max_price}</span></p>
-                        <p className="lg:text-2xl md:text-xl text-xl font-medium">Min-Price: <span className="text-xl">{min_price}</span></p>
+                        <p className="lg:text-2xl md:text-xl text-xl font-medium">Max-Price: <span className="text-xl">{maxPrice}</span></p>
+                        <p className="lg:text-2xl md:text-xl text-xl font-medium">Min-Price: <span className="text-xl">{minPrice}</span></p>
                         <p className="lg:text-2xl md:text-xl text-xl font-medium">Description: <span className="text-xl">{description}</span></p>
+                        <div className="flex gap-4">
+                            <div className="avatar ">
+                                <div className="w-10 h-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                    <img src={photo} />
+                                </div>
+                            </div>
+                            <div>
+                                <h1 className="text-base mt-2 font-medium">{name}</h1>
+                            </div>
+                        </div>
 
                         <div className="flex justify-center">
                             <div>
@@ -152,7 +166,7 @@ const Details = () => {
                                                 <label className="label">
                                                     <span className="label-text  text-base font-medium">Property Name</span>
                                                 </label>
-                                                <input type="name" name="title" defaultValue={property_name} readOnly placeholder="Please Name Here...." className="input input-bordered" />
+                                                <input type="name" name="title" defaultValue={title} readOnly placeholder="Please Name Here...." className="input input-bordered" />
                                             </div>
                                             <div className="form-control">
                                                 <label className="label">
@@ -165,6 +179,12 @@ const Details = () => {
                                                     <span className="label-text  text-base font-medium">Name</span>
                                                 </label>
                                                 <input type="name" name="name" placeholder="Please Name Here...." className="input input-bordered" />
+                                            </div>
+                                            <div className="form-control">
+                                                <label className="label">
+                                                    <span className="label-text  text-base font-medium">Agent Name</span>
+                                                </label>
+                                                <input type="text" name="agentName" defaultValue={name} placeholder="Agent Name Here...." className="input input-bordered" />
                                             </div>
                                             <div className="form-control">
                                                 <label className="label">

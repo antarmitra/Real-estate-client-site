@@ -17,7 +17,7 @@ const Advertisement = () => {
   const { data: cart = [], isPending } = useQuery({
     queryKey: ['advertising'],
     queryFn: async () => {
-      const res = await axiosPublic.get("/advertisement");
+      const res = await axiosPublic.get("/add");
       return res.data
     }
   })
@@ -33,7 +33,7 @@ const Advertisement = () => {
       <div className="mt-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-screen-xl mx-auto ">
           {
-            cart?.map(data => <AdvertisementCard key={data.id} data={data}></AdvertisementCard>)
+            cart?.slice(0, 4).map(data => <AdvertisementCard key={data.id} data={data}></AdvertisementCard>)
           }
         </div>
       </div>

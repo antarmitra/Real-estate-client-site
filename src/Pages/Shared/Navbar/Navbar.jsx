@@ -1,11 +1,11 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../../../Provider/AuthProvider";
+import { Link, NavLink } from "react-router-dom";
+import './Navbar.css'
+import useAuth from "../../../hook/useAuth";
 
 
 
 const Navbar = () => {
-    const { user, logout } = useContext(AuthContext);
+    const { user, logout } = useAuth();
 
     const handleLogOut = () => {
         logout()
@@ -35,40 +35,42 @@ const Navbar = () => {
 
 
     const navItems = <>
-        <li><Link to='/'>Home</Link></li>
-        <li> <Link to='/wishlist'>WishList</Link> </li>
-        <li> <Link to='/dashboard'>Dashboard</Link> </li>
+        <div className="lg:flex justify-between gap-7 items-center">
+            <div className="text-base font-semibold"><NavLink to='/'>Home</NavLink></div>
+            <div className="text-base font-semibold"> <NavLink to='/allproperties'>All Properties</NavLink> </div>
+            <div className="text-base font-semibold"> <NavLink to='/dashboard'>Dashboard</NavLink> </div>
 
 
 
-        {
-            user ? <>
-                <div className="flex gap-2 flex-row-reverse lg:flex-row">
+            {
+                user ? <>
+                    <div className="flex gap-2 flex-row-reverse lg:flex-row">
 
-                    <div>
-                        <div className="dropdown dropdown-end">
-                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
-                                    <img src={user.photoURL} />
-                                </div>
-                            </label>
-                            <ul tabIndex={0} className="mt-4 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                                <li className='text-black'><a>{user.displayName}</a></li>
-                                <li className='text-black'><a>{user.email}</a></li>
-                            </ul>
+                        <div>
+                            <div className="dropdown dropdown-end">
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img src={user.photoURL} />
+                                    </div>
+                                </label>
+                                <ul tabIndex={0} className="mt-4 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                                    <li className='text-black'><a>{user.displayName}</a></li>
+                                    <li className='text-black'><a>{user.email}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <button onClick={handleLogOut} className="btn btn-outline btn-primary text-white font-bold">Log Out</button>
                         </div>
                     </div>
-                    <div>
-                        <button onClick={handleLogOut} className="btn btn-outline btn-primary text-white font-bold">Log Out</button>
-                    </div>
-                </div>
-            </>
-                :
-                <>
-                    <li><Link to='/login'>Login</Link></li>
-                    <button className="btn btn-outline btn-primary"><Link to='/signup'>Sign Up</Link></button>
                 </>
-        }
+                    :
+                    <>
+                        <li><Link to='/login'>Login</Link></li>
+                        <button className="btn btn-outline btn-primary"><Link to='/signup'>Sign Up</Link></button>
+                    </>
+            }
+        </div>
     </>
 
 
@@ -92,15 +94,12 @@ const Navbar = () => {
                             {navItems}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">realEstate</a>
+                    <a className=" text-xl">realEstate</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {navItems}
                     </ul>
-                </div>
-                <div className="navbar-end">
-                    <a className="btn">Button</a>
                 </div>
             </div>
         </>

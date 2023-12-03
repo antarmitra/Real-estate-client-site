@@ -43,7 +43,7 @@ const Dashboard = () => {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to='/dashboard/managereviews'>
+                                    <NavLink to='/dashboard/managereview'>
                                         <MdRateReview className="text-xl"></MdRateReview>
                                         <p className="text-base font-medium">Manage Reviews</p>
                                     </NavLink>
@@ -115,8 +115,6 @@ const Dashboard = () => {
                                     </li>
                                 </>
                     }
-
-
 
 
 
