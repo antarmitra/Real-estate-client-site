@@ -17,7 +17,7 @@ const Advertisement = () => {
   const { data: cart = [], isPending } = useQuery({
     queryKey: ['advertising'],
     queryFn: async () => {
-      const res = await axiosPublic.get("/add");
+      const res = await axiosPublic.get("/add/property");
       return res.data
     }
   })

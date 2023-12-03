@@ -9,7 +9,7 @@ const ManageProperties = () => {
     const { data: add = [], refetch } = useQuery({
         queryKey: ['add'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/add');
+            const res = await axiosSecure.get('/add/property');
             return res.data
         }
     })

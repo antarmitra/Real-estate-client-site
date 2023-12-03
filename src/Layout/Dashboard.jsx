@@ -92,13 +92,13 @@ const Dashboard = () => {
                                     <li>
                                         <NavLink to='/dashboard/userprofile'>
                                             <CgProfile className="text-xl"></CgProfile>
-                                            <p className="text-base font-medium">User Profile</p>
+                                            <p className="text-base font-medium">My Profile</p>
                                         </NavLink>
                                     </li>
                                     <li>
                                         <NavLink to='/dashboard/wishlist'>
                                             <FaHeart className="text-xl"></FaHeart>
-                                            <p className="text-base font-medium">WishList</p>
+                                            <p className="text-base font-medium"> My WishList</p>
                                         </NavLink>
                                     </li>
                                     <li>
@@ -110,7 +110,7 @@ const Dashboard = () => {
                                     <li>
                                         <NavLink to='/dashboard/userreview'>
                                             <MdRateReview className="text-xl"></MdRateReview>
-                                            <p className="text-base font-medium">User reviews</p>
+                                            <p className="text-base font-medium">My reviews</p>
                                         </NavLink>
                                     </li>
                                 </>

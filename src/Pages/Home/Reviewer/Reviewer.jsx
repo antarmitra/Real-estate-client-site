@@ -30,10 +30,10 @@ const Reviewer = () => {
                 {
                     reviews.slice(0, 3).map(review => <SwiperSlide key={review._id}>
                         <div className="mx-24 my-16 flex flex-col items-center">
-                            <img className='w-32 h-32 rounded-full' src={review.photo} alt="" />
-                            <h2 className="text-3xl text-sky-500 ">{review.name}</h2>
-                            <h3 className='text-2xl'>{review.title}</h3>
-                            <p className="py-4 text-xl">{review.description}</p>
+                            <img className='md:w-32 w-20 md:h-32 h-20 rounded-full' src={review.photo} alt="" />
+                            <h2 className="md:text-3xl text-lg text-sky-500 ">{review.name}</h2>
+                            <h3 className='md:text-2xl text-base'>{review.title}</h3>
+                            <p className="py-4 md:text-xl text-base text-center">{review.description}</p>
 
                         </div>
                     </SwiperSlide>)

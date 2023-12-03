@@ -4,7 +4,7 @@ import { FaArrowRight } from "react-icons/fa";
 
 
 const AllPropertiesCard = ({ data }) => {
-    const { _id, image, title, location, maxPrice, minPrice, name, status, photo, } = data;
+    const { _id, image, title, location, maxPrice, name, status, photo, } = data;
     // const { user } = useAuth();
 
     return (
@@ -16,7 +16,7 @@ const AllPropertiesCard = ({ data }) => {
                     <p>{location}</p>
                     <div className="flex">
                         <p className="text-lg text-gray-500"><span className="font-medium">Max-Price: </span>{maxPrice}</p>
-                        <p className="text-lg text-gray-500"><span className="font-medium">Min-Price:</span> {minPrice}</p>
+                        {/* <p className="text-lg text-gray-500"><span className="font-medium">Min-Price:</span> {minPrice}</p> */}
                     </div>
                     <p className="text-lg text-gray-500"><span className="font-medium">Verification:</span> {status}</p>
                     <div className="flex gap-4">

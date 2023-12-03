@@ -11,7 +11,7 @@ const MyAddProperty = () => {
     const [addData, setAddData] = useState([])
 
 
-    axiosPublic.get('/add')
+    axiosPublic.get('/add/property')
         .then(res => {
             setAddData(res.data)
         })

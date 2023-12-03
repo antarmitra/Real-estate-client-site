@@ -31,8 +31,8 @@ const UserReview = () => {
     }
     return (
         <div>
-            <SectionTitle heading='User Reviews'></SectionTitle>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <SectionTitle heading='My Reviews'></SectionTitle>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
                 {
                     review.map(data => <UserReviewCard key={data._id} data={data} refetch={refetch}></UserReviewCard>)
                 }

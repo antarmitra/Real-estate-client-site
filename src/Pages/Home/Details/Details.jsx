@@ -17,10 +17,13 @@ const Details = () => {
     const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
-        fetch('http://localhost:5000/add')
-            .then(res => res.json())
-            .then(data => setDetailsData(data))
-    }, [])
+        // fetch('http://localhost:5000/add')
+        //     .then(res => res.json())
+        //     .then(data => setDetailsData(data))
+        axiosSecure('/add/property')
+        .then(res => setDetailsData(res.data))
+    }, [axiosSecure])
+
     console.log(detailsData);
 
 
