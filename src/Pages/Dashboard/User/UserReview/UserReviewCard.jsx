@@ -39,7 +39,7 @@ const UserReviewCard = ({ data, refetch }) => {
 
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card md:w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="card-title">{title}</h2>
                     <p>{agentName}</p>

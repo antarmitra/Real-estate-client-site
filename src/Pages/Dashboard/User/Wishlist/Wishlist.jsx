@@ -4,6 +4,8 @@ import SectionTitle from "../../../../component/SectionTitle/SectionTitle";
 import useAuth from "../../../../hook/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hook/useAxiosSecure";
+import loader from '../../../../assets/loading/load.json'
+import Lottie from "lottie-react";
 
 
 
@@ -11,7 +13,7 @@ const WishList = () => {
     const { user } = useAuth()
     const axiosSecure = useAxiosSecure()
 
-    const { data: wishlist, isPending, isError, error } = useQuery({
+    const { data: wishlist, isPending, isError, error, refetch } = useQuery({
         queryKey: ["wishlist", user?.email],
         queryFn: async () => {
             try {
@@ -29,7 +31,7 @@ const WishList = () => {
     }
 
     if (isPending) {
-        return <>Loading.........</>
+        return <Lottie className="w-10 h-10" animationData={loader}></Lottie>
     }
 
 
@@ -37,9 +39,9 @@ const WishList = () => {
     return (
         <div>
             <SectionTitle heading='WishList'></SectionTitle>
-            <div className="grid grid-cols-1 md:grid lg:grid-cols-2 gap-8  max-w-screen-xl mx-auto">
+            <div className="grid grid-cols-1 md:grid lg:grid-cols-2 gap-4  max-w-screen-xl mx-auto">
                 {
-                    wishlist?.map(data => <WishListCard key={data._id} data={data}></WishListCard>)
+                    wishlist?.map(data => <WishListCard key={data._id} data={data} refetch={refetch}></WishListCard>)
                 }
             </div>
         </div>

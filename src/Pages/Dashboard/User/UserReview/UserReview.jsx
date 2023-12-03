@@ -3,6 +3,8 @@ import SectionTitle from "../../../../component/SectionTitle/SectionTitle";
 import useAuth from "../../../../hook/useAuth";
 import useAxiosSecure from "../../../../hook/useAxiosSecure";
 import UserReviewCard from "./UserReviewCard";
+import loader from '../../../../assets/loading/load.json'
+import Lottie from "lottie-react";
 
 
 const UserReview = () => {
@@ -27,7 +29,7 @@ const UserReview = () => {
     }
 
     if (isPending) {
-        return <>Loading.........</>
+        return <Lottie className="w-10 h-10" animationData={loader}></Lottie>
     }
     return (
         <div>

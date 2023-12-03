@@ -36,7 +36,7 @@ const AllProperties = () => {
             <div className='image '>
                 <div className='flex flex-col justify-center h-[80vh]'>
                     <h2 className="lg:text-5xl md:text-4xl text-lg font-bold  text-white text-center ">All Properties</h2>
-                    <div className="join  mt-5 lg:ml-[600px] ">
+                    <div className="join  mt-5 lg:ml-[600px] md:ml-60 ml-16 ">
                         <form onSubmit={handleSearch}>
                             <input className='input input-bordered join-item' type="text" name='search' placeholder='Search Here....' />
                             <input type="submit" value="Search" className='btn join-item' />
@@ -52,7 +52,7 @@ const AllProperties = () => {
             </button>
 
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 max-w-screen-xl mx-auto'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 max-w-screen-xl lg:ml-32 md:ml-0 ml-5 mb-10'>
                 {
                     filteredData.map(data => <AllPropertiesCard key={data._id} data={data}></AllPropertiesCard>)
                 }

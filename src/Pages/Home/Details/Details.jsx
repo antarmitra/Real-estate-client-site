@@ -17,9 +17,6 @@ const Details = () => {
     const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
-        // fetch('http://localhost:5000/add')
-        //     .then(res => res.json())
-        //     .then(data => setDetailsData(data))
         axiosSecure('/add/property')
         .then(res => setDetailsData(res.data))
     }, [axiosSecure])
@@ -133,7 +130,7 @@ const Details = () => {
                 <h2 className="lg:text-5xl md:text-4xl text-lg font-bold text-white lg:ml-[550px] md:ml-[250px] ml-[140px]">Property Details</h2>
             </div>
             <div className="card lg:card-side lg:w-[1200px] md:w-[500px] w-[400px] mt-16 mx-auto bg-base-100 shadow-xl">
-                <figure><img className="w-[800px] h-[450px]" src={image} alt="Album" /></figure>
+                <figure><img className="w-[800px] h-full" src={image} alt="Album" /></figure>
                 <div className="card-body lg:mt-14 md:mt-0">
                     <h2 className="card-title lg:text-4xl md:text-2xl text-2xl">{title}</h2>
                     <h3 className="card-title lg:text-xl md:text-lg text-base text-gray-500">{location}</h3>

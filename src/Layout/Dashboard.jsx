@@ -3,11 +3,11 @@ import { CgProfile } from "react-icons/cg";
 import { FaHeart, FaUsers } from "react-icons/fa6";
 import { MdRateReview } from "react-icons/md";
 import { FaHandHoldingUsd, FaHome } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
 import { MdManageHistory } from "react-icons/md";
 import useAdmin from "../hook/useAdmin";
 import useAgent from "../hook/useAgent";
 import { MdOutlineRequestQuote } from "react-icons/md";
+import { AiOutlinePropertySafety } from "react-icons/ai";
 
 
 const Dashboard = () => {
@@ -17,7 +17,7 @@ const Dashboard = () => {
     return (
         <div className="flex">
             {/* dashboard side */}
-            <div className="w-64 min-h-screen bg-sky-300">
+            <div className="md:w-64 w-40  min-h-screen bg-sky-300">
                 <ul className="menu p-4">
 
                     {/* user dashboard */}
@@ -27,25 +27,25 @@ const Dashboard = () => {
                                 <li>
                                     <NavLink to='/dashboard/adminprofile'>
                                         <CgProfile className="text-xl"></CgProfile>
-                                        <p className="text-base font-medium">Admin Profile</p>
+                                        <p className="md:text-base text-[10px] font-medium">Admin Profile</p>
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink to='/dashboard/manageproperties'>
                                         <MdManageHistory className="text-xl"></MdManageHistory>
-                                        <p className="text-base font-medium">Manage Properties</p>
+                                        <p className="md:text-base text-[10px] font-medium">Manage Properties</p>
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink to='/dashboard/manageusers'>
                                         <FaUsers className="text-xl"></FaUsers>
-                                        <p className="text-base font-medium">Manage Users</p>
+                                        <p className="md:text-base text-[10px] font-medium">Manage Users</p>
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink to='/dashboard/managereview'>
                                         <MdRateReview className="text-xl"></MdRateReview>
-                                        <p className="text-base font-medium">Manage Reviews</p>
+                                        <p className="md:text-base text-[10px] font-medium">Manage Reviews</p>
                                     </NavLink>
                                 </li>
                             </>
@@ -57,31 +57,31 @@ const Dashboard = () => {
                                     <li>
                                         <NavLink to='/dashboard/agentprofile'>
                                             <CgProfile className="text-xl"></CgProfile>
-                                            <p className="text-base font-medium">Agent Profile</p>
+                                            <p className="md:text-base text-[10px] font-medium">Agent Profile</p>
                                         </NavLink>
                                     </li>
                                     <li>
                                         <NavLink to='/dashboard/addproperty'>
                                             <MdManageHistory className="text-xl"></MdManageHistory>
-                                            <p className="text-base font-medium">Add Property</p>
+                                            <p className="md:text-base text-[10px] font-medium">Add Property</p>
                                         </NavLink>
                                     </li>
                                     <li>
                                         <NavLink to='/dashboard/myaddproperty'>
                                             <FaUsers className="text-xl"></FaUsers>
-                                            <p className="text-base font-medium">My added Property</p>
+                                            <p className="md:text-base text-[10px] font-medium">My added Property</p>
                                         </NavLink>
                                     </li>
                                     <li>
                                         <NavLink to='/dashboard/mysoldreviews'>
                                             <MdRateReview className="text-xl"></MdRateReview>
-                                            <p className="text-base font-medium">My Sold Reviews</p>
+                                            <p className="md:text-base text-[10px] font-medium">My Sold Reviews</p>
                                         </NavLink>
                                     </li>
                                     <li>
                                         <NavLink to='/dashboard/requestedproperty'>
                                             <MdOutlineRequestQuote className="text-xl"></MdOutlineRequestQuote>
-                                            <p className="text-base font-medium">Requested Property</p>
+                                            <p className="md:text-base text-[10px] font-medium">Requested Property</p>
                                         </NavLink>
                                     </li>
                                 </>
@@ -92,25 +92,25 @@ const Dashboard = () => {
                                     <li>
                                         <NavLink to='/dashboard/userprofile'>
                                             <CgProfile className="text-xl"></CgProfile>
-                                            <p className="text-base font-medium">My Profile</p>
+                                            <p className="md:text-base text-[10px] font-medium">My Profile</p>
                                         </NavLink>
                                     </li>
                                     <li>
                                         <NavLink to='/dashboard/wishlist'>
                                             <FaHeart className="text-xl"></FaHeart>
-                                            <p className="text-base font-medium"> My WishList</p>
+                                            <p className="md:text-base text-[10px] font-medium"> My WishList</p>
                                         </NavLink>
                                     </li>
                                     <li>
                                         <NavLink to='/dashboard/propertybought'>
                                             <FaHandHoldingUsd className="text-xl"></FaHandHoldingUsd>
-                                            <p className="text-base font-medium">Property bought</p>
+                                            <p className="md:text-base text-[10px] font-medium">Property bought</p>
                                         </NavLink>
                                     </li>
                                     <li>
                                         <NavLink to='/dashboard/userreview'>
                                             <MdRateReview className="text-xl"></MdRateReview>
-                                            <p className="text-base font-medium">My reviews</p>
+                                            <p className="md:text-base text-[10px] font-medium">My reviews</p>
                                         </NavLink>
                                     </li>
                                 </>
@@ -127,13 +127,13 @@ const Dashboard = () => {
                     <li>
                         <NavLink to='/'>
                             <FaHome className="text-xl"></FaHome>
-                            <p className="text-base font-medium">Home</p>
+                            <p className="md:text-base text-[10px] font-medium">Home</p>
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/'>
-                            <MdEmail className="text-xl"></MdEmail>
-                            <p className="text-base font-medium">Contact</p>
+                        <NavLink to='/allproperties'>
+                            <AiOutlinePropertySafety className="text-xl"></AiOutlinePropertySafety>
+                            <p className="md:text-base text-[10px] font-medium">All Properties</p>
                         </NavLink>
                     </li>
                 </ul>

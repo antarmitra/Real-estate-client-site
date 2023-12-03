@@ -4,9 +4,6 @@ import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import { useEffect, useState } from "react";
 import SectionTitle from '../../../component/SectionTitle/SectionTitle';
-// import { Rating } from "@smastrom/react-rating";
-// import '@smastrom/react-rating/style.css'
-
 
 const Reviewer = () => {
     const [reviews, setReviews] = useState([]);

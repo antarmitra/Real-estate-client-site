@@ -72,21 +72,21 @@ const MyAddPropertyCard = ({ data }) => {
             <div className="card mx-auto bg-base-100 shadow-xl">
                 <figure><img src={image} alt="Shoes" /></figure>
                 <div className="card-body">
-                    <h2 className="card-title text-xl">{title}</h2>
-                    <h3 className="text-base font-medium text-gray-500">{location}</h3>
+                    <h2 className="card-title md:text-xl text-base">{title}</h2>
+                    <h3 className="md:text-base text-xs font-medium text-gray-500">{location}</h3>
                     <div className="flex">
-                        <p className="text-lg text-gray-500"><span className="font-medium">Max-Price: </span>{maxPrice}</p>
-                        <p className="text-lg text-gray-500"><span className="font-medium">Min-Price:</span> {minPrice}</p>
+                        <p className="md:text-lg text-sm text-gray-500"><span className="font-medium">Max-Price: </span>{maxPrice}</p>
+                        <p className="md:text-lg text-sm text-gray-500"><span className="font-medium">Min-Price:</span> {minPrice}</p>
                     </div>
 
                   <div className="flex gap-4">
                   <div className="avatar ">
-                        <div className="w-10 h-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        <div className="md:w-10 w-5 md:h-10 h-5 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                             <img src={user?.photoURL} />
                         </div>
                     </div>
                     <div>
-                        <h1 className="text-base mt-2 font-medium">{name}</h1>
+                        <h1 className="md:text-base text-sm md:mt-2 font-medium">{name}</h1>
                     </div>
                   </div>
 

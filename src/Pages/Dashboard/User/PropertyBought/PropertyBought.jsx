@@ -3,7 +3,7 @@
 const PropertyBought = () => {
     return (
         <div>
-            <h1 className="text-4xl">This is Property Bought Page</h1>
+            <h1 className="text-4xl">Comming Soon.....</h1>
         </div>
     );
 };

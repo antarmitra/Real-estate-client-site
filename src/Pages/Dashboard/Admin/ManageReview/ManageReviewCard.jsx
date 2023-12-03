@@ -42,9 +42,9 @@ const ManageReviewCard = ({ data, refetch }) => {
                     <img src={photo} alt="Shoes" className="rounded-full h-40 w-40" />
                 </figure>
                 <div className="card-body items-center text-center">
-                    <h2 className="card-title">{email}</h2>
-                    <h2 className="card-title">{name}</h2>
-                    <p>{description}</p>
+                    <h2 className="card-title md:text-xl text-base">{email}</h2>
+                    <h2 className="card-title md:text-xl text-base">{name}</h2>
+                    <p className="md:text-base text-sm">{description}</p>
                     <div className="card-actions">
                         <button onClick={() =>handleDelete(data)} className="btn btn-outline border-0 border-b-4  bg-slate-100 text-blue-500 text-center mx-auto">Delete</button>
                     </div>
