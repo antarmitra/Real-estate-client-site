@@ -33,7 +33,7 @@ const Footer = () => {
                
 
             </footer>
-            <div className="footer-center p-4 bg-black md:text-lg text-xs  text-white">
+            <div className="footer-center p-4 bg-black md:text-base text-xs  text-white">
                 <aside>
                     <p>Copyright © 2023 - All right reserved by realEstate Industries Ltd</p>
                 </aside>

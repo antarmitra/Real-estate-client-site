@@ -14,7 +14,7 @@ import Swal from "sweetalert2";
 
 
 const Login = () => {
-    const [disable, setDisable] = useState(false);
+    const [disable, setDisable] = useState(true);
 
     const { singIn } = useAuth();
     const navigate = useNavigate();
