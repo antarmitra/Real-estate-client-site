@@ -42,7 +42,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/details/:id',
-                element: <Details></Details>
+                element: <PrivateRoute><Details></Details></PrivateRoute>
             },
             {
                 path: '/offer/:id',
@@ -50,7 +50,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/allproperties',
-                element: <AllProperties></AllProperties>
+                element: <PrivateRoute><AllProperties></AllProperties></PrivateRoute>
             },
             {
                 path: '/wishlist',
@@ -91,7 +91,7 @@ export const router = createBrowserRouter([
             },
 
 
-            
+
             // agent routes
             {
                 path: 'agentprofile',
@@ -125,7 +125,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'managereview',
-                element: <ManageReview></ManageReview>
+                element: <ManageReview>d</ManageReview>
             }
         ]
     }

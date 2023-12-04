@@ -4,7 +4,7 @@
 
 
 // const axiosSecure = axios.create({
-//     baseURL: 'http://localhost:5000'
+//     baseURL: 'https://real-estate-server-site.vercel.app'
 // })
 
 // const useAxiosSecure = () => {
@@ -51,7 +51,7 @@ import useAuth from "./useAuth";
 
 
 export const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://real-estate-server-site.vercel.app'
 })
 
 const useAxiosSecure = () => {

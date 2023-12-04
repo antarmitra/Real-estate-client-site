@@ -94,7 +94,7 @@ const Details = () => {
         const review = { title, photo, name, description, date, email, agentName }
         console.log(review);
 
-        fetch('http://localhost:5000/review', {
+        fetch('https://real-estate-server-site.vercel.app/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
